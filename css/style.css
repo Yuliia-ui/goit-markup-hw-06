@@ -1,8 +1,6 @@
 :root {
   --primary-font-stack: 'Roboto';
   --grey-color: #555252;
-  --animation-time: 250ms;
-  --timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -310,17 +308,17 @@ html {
   height: 100%;
   width: 100%;
 }
-
 .overlay::before {
+  display: none;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 255px;
   height: 283px;
   content: '';
   background-color: rgba(0, 0, 0, 0.55);
+  background-clip: padding-box;
 }
-
 .new-link:hover .overlay::before {
   display: block;
 }
@@ -370,95 +368,6 @@ html {
   background-color: #7fd9c7;
 }
 
-/*buttons*/
-.button-icons {
-  padding: 4px;
-}
-
-.button-icon-heart {
-  background-image: url(../images/icons/heart.png);
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-  border: 1px solid #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 32px;
-  color: #ffffff;
-  width: 50px;
-  height: 50px;
-}
-
-.button-icon-random {
-  background-image: url(../images/icons/random.png);
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-  border: 1px solid #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 32px;
-  color: #ffffff;
-  width: 50px;
-  height: 50px;
-}
-.button-icon-cart {
-  width: 166px;
-  height: 50px;
-  font-size: 14px;
-  line-height: 32px;
-  color: #ffff;
-  text-align: center;
-  font-family: 'Open Sans';
-  font-weight: 400;
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #ffffff;
-}
-.button-icon-cart:hover {
-  background-color: #323232;
-}
-.button-icon-cart::before {
-  padding-right: 10px;
-  display: inline-block;
-  content: '';
-  width: 37px;
-  height: 29px;
-  background-image: url(../images/icons/cart.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  /*background-image: url(../images/icons/cart.png);
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-  border: 1px solid #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 32px;
-  color: #ffffff;
-  width: 50px;
-  height: 50px;*/
-}
-
-.button-icon-clock {
-  background-image: url(../images/icons/clock.png);
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-  border: 1px solid #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 32px;
-  color: #ffffff;
-  width: 50px;
-  height: 50px;
-}
-.button-icon-heart:hover {
-  background-color: #1abc9c;
-}
-.button-icon-random:hover {
-  background-color: #1abc9c;
-}
-.button-icon-clock:hover {
-  background-color: #1abc9c;
-}
 /*section1*/
 
 .img {
@@ -695,12 +604,7 @@ html {
   height: 60px;
   border-radius: 5px;
   background-color: #4ec6ab;
-  cursor: pointer;
-  transition: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: linear;
 }
-
 .footer-input {
   position: relative;
   font-size: 16px;
