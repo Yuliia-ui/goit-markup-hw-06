@@ -29,9 +29,6 @@ html {
 .header {
   font-family: 'Open Sans';
   min-height: 95px;
-  animation-name: zoomIn;
-  animation-duration: 2000ms;
-  animation-timing-function: var(--timing-fn);
 }
 
 /*menu-section*/
@@ -395,7 +392,6 @@ html {
   right: 15%;
   z-index: 100;
   opacity: 0;
-  transition: opacity var(--animation-time) var(--timing-fn);
 }
 
 .button-icon-heart {
@@ -483,10 +479,11 @@ html {
   height: 240px;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
+ 
 }
+
 .snap-list-link:hover .overlay::before {
   display: block;
-  transform: translateY(100%);
 }
 
 .snap-list-link:hover .overlay-button {
