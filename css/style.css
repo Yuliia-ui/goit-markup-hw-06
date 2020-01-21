@@ -1,6 +1,8 @@
 :root {
   --primary-font-stack: 'Roboto';
   --grey-color: #555252;
+  --timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-time: 250ms;
 }
 
 body {
@@ -27,6 +29,9 @@ html {
 .header {
   font-family: 'Open Sans';
   min-height: 95px;
+  animation-name: zoomIn;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--timing-fn);
 }
 
 /*menu-section*/
@@ -122,6 +127,16 @@ html {
 
 /*nav*/
 
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .site-logo {
   font-family: 'Roboto';
   display: block;
@@ -134,6 +149,9 @@ html {
   font-size: 30px;
   line-height: 1;
   text-decoration: none;
+  animation-name: slideInLeft;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--timing-fn);
 }
 .site-logo::first-letter {
   font-family: 'Roboto';
@@ -370,6 +388,83 @@ html {
 
 /*section1*/
 
+.overlay-button {
+  width: 170px;
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity var(--animation-time) var(--timing-fn);
+}
+
+.button-icon-heart {
+  background-image: url(../images/icons/heart.png);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.button-icon-heart:hover {
+  background-color: #1abc9c;
+}
+.button-icon-random:hover {
+  background-color: #1abc9c;
+}
+.button-icon-clock:hover {
+  background-color: #1abc9c;
+}
+.button-icon-random {
+  background-image: url(../images/icons/random.png);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+}
+.button-icon-clock {
+  background-image: url(../images/icons/clock.png);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.button-icon-cart {
+  width: 158px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  line-height: 32px;
+  color: #ffffff;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+.button-icon-cart::before {
+  margin-right: 10px;
+  display: inline-block;
+  content: '';
+  background-image: url(../images/icons/cart.png);
+  width: 37px;
+  height: 29px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.button-icon-cart:hover {
+  background-color: #323232;
+}
 .img {
   display: block;
   max-width: 100%;
@@ -381,7 +476,6 @@ html {
 }
 .overlay::before {
   content: '';
-  display: none;
   position: absolute;
   top: 20px;
   left: 20px;
@@ -392,6 +486,11 @@ html {
 }
 .snap-list-link:hover .overlay::before {
   display: block;
+  transform: translateY(100%);
+}
+
+.snap-list-link:hover .overlay-button {
+  opacity: 1;
 }
 
 .card {
