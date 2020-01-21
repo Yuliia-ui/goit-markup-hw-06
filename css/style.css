@@ -479,7 +479,6 @@ html {
   height: 240px;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
- 
 }
 
 .snap-list-link:hover .overlay::before {
